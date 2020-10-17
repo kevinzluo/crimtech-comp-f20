@@ -1,0 +1,62 @@
+.container {
+  display: flex;
+}
+
+.pic-container {
+  display: flex;
+  margin: auto;
+}
+
+.pic-container img {
+  margin: auto;
+}
+
+.chat-window {
+  flex-grow: 1;
+  height: 300px;
+  border: 1px black solid;
+  position: relative;
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-section {
+  flex-grow: 1;
+  overflow: auto;
+}
+
+.yoda-message {
+  background-color: blueviolet;
+  margin: 3px;
+}
+
+.yoda-message p {
+  margin: 0px;
+  color: white;
+}
+
+.user-message {
+  background-color: white;
+  margin: 3px;
+}
+
+.user-message p {
+  margin: 0px;
+}
+
+.input-section {
+  position: relative;
+  display: flex;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+}
+
+.input-div {
+  flex-grow: 1;
+}
+
+.button-div {
+  width: auto;
+}

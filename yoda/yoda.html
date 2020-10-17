@@ -1,9 +1,33 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        
-    </head>
-    <body>
-
-    </body>
+   <head>
+      <title>Yoda Chat!</title>
+      <link rel="shortcut icon" type="img/png" href="img/favicon.ico">
+      <link rel="stylesheet" href="style.css">
+   </head>
+   <body>
+      <div class="container">
+         <div class="pic-container">
+            <img src="img/cute-force.jpg" height="300px" alt="cute photo of yoda using the force" id="yoda-pic">
+         </div>
+         <div class="chat-window">
+             <div class="chat-section" id = "chat-box">
+                <div class="yoda-message">
+                    <p><b>Yoda: </b>To Yoda chat I welcome you. Yes, hmmmmm.</p>
+                </div>
+             </div>
+            <div>
+               <div class="input-section">
+                  <div class="input-div">
+                     <input type="text" style="width:100%" id="user-input">
+                  </div>
+                  <div class="button-div">
+                     <button type="submit" onclick="respond()">Speak to Yoda</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <script src="response_handler.js"></script>
+   </body>
 </html>

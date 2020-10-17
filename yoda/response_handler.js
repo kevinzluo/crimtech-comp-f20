@@ -2,6 +2,8 @@
 let names = ['cute', 'regular'];
 let moods = ['dark', 'force', 'std'];
 
+
+
 let dark_quotes = ["Once you start down the dark path, forever will it dominate your destiny, consume you it will.",
 "In a dark place we find ourselves, and a little more knowledge lights our way.",
 "Fear is the path to the dark side. Fear leads to anger. Anger leads to hate. Hate leads to suffering.",
@@ -21,5 +23,73 @@ let std_quotes = ["Patience you must have, my young padawan.",
 
 function respond() {
     // Your Code Here
-    console.log("Hello World!");
+    let img = document.getElementById("yoda-pic");
+    let input = document.getElementById("user-input");
+    let chatbox = document.getElementById("chat-box");
+    let canSpeak = false;
+    let arr;
+
+    addMessage(input.value, true);
+    
+    let srcStr = "";
+
+    if(input.value.includes(names[0]) || input.value.includes("baby")) {
+        srcStr += "cute-";
+    } else {
+        srcStr += "regular-";
+        canSpeak = true;
+    }
+
+    if(input.value.includes(moods[1])) {
+        if(input.value.includes(moods[0])) {
+            srcStr += "dark";
+            arr = dark_quotes;
+        } else {
+            srcStr += "force";
+            arr = force_quotes;
+        }
+    } else {
+        srcStr += "std";
+        arr = std_quotes;
+    }
+
+    let text;
+    if(canSpeak) {
+        let r = Math.floor(Math.random() * arr.length);
+        text = arr[r];
+    } else {
+        text = "Hmmmmmmmmm"
+    }
+    addMessage(text, false);
+
+    img.setAttribute("src", `img/${srcStr}.jpg`);
+
+    input.value = "";
+}
+
+document.getElementById("user-input").addEventListener("keydown", function(e) {
+    if(e.key === "Enter") {
+        respond();
+    }
+});
+
+function addMessage(text, user=true) {
+    let chatbox = document.getElementById("chat-box");
+
+    let typeOfMessage, person;
+    if(user) {
+        typeOfMessage = "user-message" ;
+        person = "You";
+    } else { 
+        typeOfMessage = "yoda-message";
+        person = "Yoda";
+    }
+
+    let message = document.createElement("DIV");
+    message.classList.add(typeOfMessage);
+    message.innerHTML = `<p><b>${person}: </b>${text}</p>`;
+    chatbox.appendChild(message);
+
+    chatbox.scrollTop = chatbox.scrollHeight;
+
 }
