@@ -58,7 +58,7 @@ function respond() {
         let r = Math.floor(Math.random() * arr.length);
         text = arr[r];
     } else {
-        text = "Hmmmmmmmmm"
+        text = "Hm" + "m".repeat(Math.floor(Math.random() * 20));
     }
     addMessage(text, false);
 
